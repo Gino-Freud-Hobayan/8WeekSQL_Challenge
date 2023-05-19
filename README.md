@@ -1,2 +1,3 @@
-# 8WeekSQL-Dannys_Diner
-8 Week SQL Challenge - Danny's Diner
+# 8WeekSQL_Challenge
+
+1.) Danny's Diner
