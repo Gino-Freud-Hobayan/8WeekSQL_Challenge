@@ -1,8 +1,10 @@
 # 8WeekSQL_Challenge
 
+## https://8weeksqlchallenge.com/
+
 8 Week SQL Challenge done by Gino Hobayan
 
-Let's goo!!
+Learning SQL, one code at a time.
 
 
 
