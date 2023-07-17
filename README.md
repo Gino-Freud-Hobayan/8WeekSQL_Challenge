@@ -9,6 +9,7 @@ Learning SQL, one code at a time.
 
 
 1.) Danny's Diner - https://8weeksqlchallenge.com/case-study-1/
+![image](https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/0f807b23-a453-47d5-9e35-c537cd22dd30)
 
 
 
