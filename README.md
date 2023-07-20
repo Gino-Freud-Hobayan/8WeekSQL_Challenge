@@ -5,6 +5,7 @@
 8 Week SQL Challenge done by Gino Hobayan
 
 This case study really helped me deepen my understanding of Aggregate functions, Window functions, CASE statements, CTE's, and more.
+
 Learning SQL, one code at a time.
 
 
