@@ -4,10 +4,10 @@
 
 8 Week SQL Challenge done by Gino Hobayan
 
-
 Learning SQL, one code at a time.
 
-
+<br>
+<br>
 
 1.) Danny's Diner - https://8weeksqlchallenge.com/case-study-1/
 
