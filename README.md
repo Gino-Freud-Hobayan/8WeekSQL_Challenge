@@ -17,6 +17,7 @@ It's an excellent way to apply all the theoretical knowledge I learned from the 
 
 This case study really helped me deepen my understanding of Aggregate functions, Window functions, CASE statements, CTEs, and more.
 
+PDF: https://drive.google.com/file/d/1jLHWro41mbfpemUymKv97JmIPyvwgbmz/view?usp=sharing
 
 <img width="222" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/5a829950-1761-48ee-8ec4-e118ed9a470c">
 
