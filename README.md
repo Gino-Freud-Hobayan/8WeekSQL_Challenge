@@ -13,7 +13,7 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 <br>
 <br>
 
-## **1.) Danny's Diner - https://8weeksqlchallenge.com/case-study-1/**
+# **1.) Danny's Diner**
 
 ### **PDF: https://drive.google.com/file/d/1jLHWro41mbfpemUymKv97JmIPyvwgbmz/view?usp=sharing**
 
