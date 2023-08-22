@@ -6,7 +6,7 @@
 
 Learning SQL, one code at a time.
 
-I used Microsoft SQL Server for the 8-Week SQL Challenge, 
+I used **Microsoft SQL Server** for the 8-Week SQL Challenge, 
 It's an excellent way to apply all the theoretical SQL knowledge I learned from the Google Data Analytics Certificate.
 
 
