@@ -65,9 +65,7 @@ Total amount spent:
 Customer A - 76
 Customer B - 74
 Customer C - 36
-
 */
-
 
 
 
@@ -87,9 +85,44 @@ No. of days visited
 Customer A - 4
 Customer B - 6
 Customer C - 2
-
 */
 
+
+
+
+-- 3. What was the first item from the menu purchased by each customer?
+WITH CTE_RANK_OF_ALL_ITEMS AS
+(
+SELECT	
+	customer_id,
+	sales.product_id,
+	order_date,
+	product_name,
+	ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date) AS WINDOW_rownumber
+FROM
+	sales
+JOIN
+	menu
+ON
+	sales.product_id = menu.product_id
+) 
+
+SELECT
+	customer_id,
+	order_date,
+	product_name AS First_item_purchased
+FROM
+	CTE_RANK_OF_ALL_ITEMS
+WHERE
+	WINDOW_rownumber = 1
+
+
+/* 
+ANSWER: 
+Customer A - order date (2021-01-01) - first item purchased (sushi)
+Customer B - order date (2021-01-01) - first item purchased (curry)
+Customer C - order date (2021-01-01) - first item purchased (ramen)
+*/
 
 ```
 
