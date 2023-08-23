@@ -20,8 +20,15 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 **This case study really helped me deepen my understanding of Aggregate functions, Window functions, CASE statements, CTEs, and more.**
 
 
-<img width="401" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
-<img width="417" alt="ERD - danny's diner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/e7399105-1556-4306-a992-6534f87c4daf">
+# SQL Commands used:
+- Data Definition Language (DDL)
+- Data Manipulation Language (DML)
+- Data Query Language (DQL)
+
+<br>
+
+<img width="330" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
+<img width="360" alt="ERD - danny's diner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/e7399105-1556-4306-a992-6534f87c4daf">
 
 <br>
 
@@ -44,6 +51,89 @@ He plans on using these insights to help him decide whether he should expand the
 -------------------------------------------------------------------------------------
 
 
+
+
+-------------------------------------------------------------------------------------
+-- DATA DEFINITION LANGUAGE (DDL) and DATA MANIPULATION LANGUAGE (DML)
+-------------------------------------------------------------------------------------
+
+
+CREATE SCHEMA 
+	dannys_diner;
+
+
+CREATE TABLE 
+	sales 
+(
+  "customer_id" VARCHAR(1),
+  "order_date" DATE,
+  "product_id" INTEGER
+);
+
+
+INSERT INTO sales
+  ("customer_id", "order_date", "product_id")
+VALUES
+  ('A', '2021-01-01', '1'),
+  ('A', '2021-01-01', '2'),
+  ('A', '2021-01-07', '2'),
+  ('A', '2021-01-10', '3'),
+  ('A', '2021-01-11', '3'),
+  ('A', '2021-01-11', '3'),
+  ('B', '2021-01-01', '2'),
+  ('B', '2021-01-02', '2'),
+  ('B', '2021-01-04', '1'),
+  ('B', '2021-01-11', '1'),
+  ('B', '2021-01-16', '3'),
+  ('B', '2021-02-01', '3'),
+  ('C', '2021-01-01', '3'),
+  ('C', '2021-01-01', '3'),
+  ('C', '2021-01-07', '3');
+
+
+
+CREATE TABLE 
+	menu 
+(
+  "product_id" INTEGER,
+  "product_name" VARCHAR(5),
+  "price" INTEGER
+);
+
+
+INSERT INTO 
+	menu
+  ("product_id", "product_name", "price")
+VALUES
+  ('1', 'sushi', '10'),
+  ('2', 'curry', '15'),
+  ('3', 'ramen', '12');
+
+
+CREATE TABLE 
+	members 
+(
+  "customer_id" VARCHAR(1),
+  "join_date" DATE
+);
+
+
+INSERT INTO 
+	members
+  ("customer_id", "join_date")
+VALUES
+  ('A', '2021-01-07'),
+  ('B', '2021-01-09');
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+-- DATA QUERY LANGUAGE (DQL)
+-------------------------------------------------------------------------------------
 
 
 -- 1. What is the total amount each customer spent at the restaurant?
