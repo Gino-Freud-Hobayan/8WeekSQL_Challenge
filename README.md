@@ -19,6 +19,7 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 
 **This case study really helped me deepen my understanding of Aggregate functions, Window functions, CASE statements, CTEs, and more.**
 
+<br>
 
 # SQL Commands used:
 - Data Definition Language (DDL)
@@ -27,10 +28,12 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 
 <br>
 
-<img width="330" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
-<img width="360" alt="ERD - danny's diner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/e7399105-1556-4306-a992-6534f87c4daf">
+<img width="320" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
+<img width="350" alt="ERD - danny's diner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/e7399105-1556-4306-a992-6534f87c4daf">
+
 
 <br>
+
 
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. 
 
