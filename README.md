@@ -163,6 +163,9 @@ Customer C - 36
 
 
 
+
+
+
 -- 2. How many days has each customer visited the restaurant?
 SELECT
 	customer_id,
@@ -179,6 +182,9 @@ Customer A - 4
 Customer B - 6
 Customer C - 2
 */
+
+
+
 
 
 
