@@ -217,6 +217,35 @@ Customer B - order date (2021-01-01) - first item purchased (curry)
 Customer C - order date (2021-01-01) - first item purchased (ramen)
 */
 
+
+
+
+
+
+
+
+
+-- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+SELECT TOP 1
+	menu.product_name,
+	COUNT(menu.product_name) AS MOST_PURCHASED_ITEM
+FROM
+	menu
+JOIN
+	sales
+ON
+	menu.product_id = sales.product_id
+GROUP BY
+	menu.product_name
+ORDER BY
+	MOST_PURCHASED_ITEM DESC	
+
+/* 
+ANSWER:
+Ramen - the most purchased item on the menu (it was purchased 8 times.)
+*/
+
+
 ```
 
 <br>
