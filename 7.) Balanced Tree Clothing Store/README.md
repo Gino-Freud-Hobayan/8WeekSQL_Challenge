@@ -9,10 +9,17 @@ https://8weeksqlchallenge.com/case-study-7/
 
 
 
+
 <br><br><br>
 
-## (ERD) ENTITY RELATIONSHIP DIAGRAM)
+## (ERD) ENTITY RELATIONSHIP DIAGRAM:
 
+
+
+<br><br><br>
+
+
+## DATA QUERY LANGUAGE (DQL):
 
 ```sql
 ------------------------------------------
@@ -23,8 +30,8 @@ https://8weeksqlchallenge.com/case-study-7/
 
 SELECT
 	prod.product_id,
-    prod.product_name,
-    SUM(sales.qty) AS total_qty_sold
+	prod.product_name,
+	SUM(sales.qty) AS total_qty_sold
 
 FROM
 	balanced_tree.product_details AS prod
@@ -33,9 +40,28 @@ ON prod.product_id = sales.prod_id
 
 GROUP BY 
 	prod.product_id, 
-    prod.product_name
+	prod.product_name
     
  ORDER BY total_qty_sold DESC
+
+
+
+RESULT:
+
+| product_id | product_name                     | total_qty_sold |
+| ---------- | -------------------------------- | -------------- |
+| 9ec847     | Grey Fashion Jacket - Womens     | 3876           |
+| c4a632     | Navy Oversized Jeans - Womens    | 3856           |
+| 2a2353     | Blue Polo Shirt - Mens           | 3819           |
+| 5d267b     | White Tee Shirt - Mens           | 3800           |
+| f084eb     | Navy Solid Socks - Mens          | 3792           |
+| e83aa3     | Black Straight Jeans - Womens    | 3786           |
+| 2feb6b     | Pink Fluro Polkadot Socks - Mens | 3770           |
+| 72f5d4     | Indigo Rain Jacket - Womens      | 3757           |
+| d5e9a6     | Khaki Suit Jacket - Womens       | 3752           |
+| e31d39     | Cream Relaxed Jeans - Womens     | 3707           |
+| b9a74d     | White Striped Socks - Mens       | 3655           |
+| c8d436     | Teal Button Up Shirt - Mens      | 3646           |
 
 ```
 
@@ -65,6 +91,39 @@ GROUP BY
 
 
 
+<br><br><br><br>
+
+
+
+```sql
+
+------------------------------------------
+-- Transaction Analysis
+------------------------------------------
+
+
+
+-- 1. Count the number of unique transactions
+
+SELECT
+	COUNT(DISTINCT txn_id)	AS UNIQUE_COUNT_OF_TRANSACTIONS
+    
+FROM
+	balanced_tree.sales
+
+
+
+RESULT:
+
+| unique_count_of_transactions |
+| ---------------------------- |
+| 2500                         |
+
+```
+
+
+
+
 <br><br>
 
 
@@ -74,3 +133,42 @@ GROUP BY
 
 
 ```
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- comment
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
