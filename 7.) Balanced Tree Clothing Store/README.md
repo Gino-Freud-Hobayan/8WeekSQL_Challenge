@@ -80,10 +80,15 @@ balanced_tree.sales contains product level information for all the transactions 
 
 
 
-<br><br><br>
+<br><br><br><br>
 
 
-## DATA QUERY LANGUAGE (DQL):
+# DATA QUERY LANGUAGE (DQL):
+
+<br><br>
+
+
+## High Level Sales Analysis:
 
 ```sql
 ------------------------------------------
@@ -158,6 +163,7 @@ RESULT:
 <br><br><br><br>
 
 
+## Transaction Analysis:
 
 ```sql
 
@@ -254,6 +260,7 @@ RESULT:
 <br><br><br><br>
 
 
+## Product Analysis:
 
 ```sql
 ------------------------------------------
