@@ -193,7 +193,7 @@ RESULT:
 
 
 ```sql
--- comment
+-- 2. Calculate the average unique products purchased in each transaction
 
 
 ```
@@ -206,7 +206,43 @@ RESULT:
 
 
 ```sql
--- comment
+-- 3. Find the 25th, 50th, and 75th percentile values for the revenue per transaction
+
+
+```
+
+
+
+<br><br>
+
+
+
+```sql
+-- 4. Calculate the average discount value per transaction
+
+
+```
+
+
+
+<br><br>
+
+
+
+```sql
+-- 5. Determine the percentage split of all transactions for members vs. non-members
+
+
+```
+
+
+
+<br><br>
+
+
+
+```sql
+-- 6. Calculate the average revenue for member transactions and non-member transactions
 
 
 ```
@@ -215,20 +251,143 @@ RESULT:
 
 
 
+<br><br><br><br>
+
+
+
+```sql
+------------------------------------------
+-- Product Analysis
+------------------------------------------
+
+
+-- 1. Find the top 3 products by total revenue before discount
+
+
+```
 
 
 
 
 
+<br><br>
+
+
+
+```sql
+-- 2. Calculate the total quantity, revenue, and discount for each segment
+
+
+```
 
 
 
 
 
+<br><br>
+
+
+
+```sql
+-- 3. Identify the top-selling product for each segment
+
+
+```
 
 
 
 
+<br><br>
+
+
+
+```sql
+-- 4. Calculate the total quantity, revenue, and discount for each category
+
+
+```
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- 5. Identify the top-selling product for each category
+
+
+```
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- 6. Determine the percentage split of revenue by product for each segment
+
+
+```
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- 7. Determine the percentage split of revenue by segment for each category
+
+
+```
+
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- 8. Determine the percentage split of total revenue by category
+
+
+```
+
+
+
+
+<br><br>
+
+
+
+```sql
+/* 
+9. Calculate the total transaction "penetration" for each product 
+(penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
+*/
+
+
+```
+
+
+
+
+<br><br>
+
+
+
+```sql
+-- 10. Find the most common combination of at least 1 quantity of any 3 products in a single transaction
+
+
+```
 
 
 
