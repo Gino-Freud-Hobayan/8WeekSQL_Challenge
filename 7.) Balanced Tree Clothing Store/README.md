@@ -7,7 +7,9 @@
 
 https://8weeksqlchallenge.com/case-study-7/
 
+<br>
 
+Solved using DB Fiddle: https://www.db-fiddle.com/f/dkhULDEjGib3K58MvDjYJr/8
 
 
 <br><br><br>
