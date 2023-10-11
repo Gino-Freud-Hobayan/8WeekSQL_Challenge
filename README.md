@@ -2,7 +2,7 @@
 
 SQL Case studies done by Gino Hobayan
 
-Learning SQL, one code at a time.
+Getting better at SQL, one line of code at a time.
 
 This SQL Challenge is an excellent way to apply all the theoretical SQL knowledge I learned from DataCamp's SQL Fundamentals and the Google Data Analytics Certificate.
 
