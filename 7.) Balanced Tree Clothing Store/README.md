@@ -41,6 +41,10 @@ Danny, the CEO of this trendy fashion company has asked you to **assist the team
 
 balanced_tree.product_details includes all information about the entire range that Balanced Clothing sells in their store.
 
+<details>
+  <summary>Click to view</summary>
+
+
 
 | product_id | price |         product_name          | category_id | segment_id | style_id | category_name | segment_name |    style_name     |
 |------------|-------|------------------------------|-------------|------------|----------|---------------|--------------|-------------------|
@@ -58,12 +62,19 @@ balanced_tree.product_details includes all information about the entire range th
 |   2feb6b   |   29  | Pink Fluro Polkadot Socks - Mens |    2     |     6      |    18    |      Mens     |    Socks     | Pink Fluro Polkadot |
 
 
+</details>
+
+
+
 <br><br>
 
 
 ## Product Sales TABLE:
 
 balanced_tree.sales contains product level information for all the transactions made for Balanced Tree including quantity, price, percentage discount, member status, a transaction ID and also the transaction timestamp.
+
+<details>
+  <summary>Click to view</summary>
 
 | prod_id | qty | price | discount | member | txn_id |      start_txn_time      |
 |---------|-----|-------|----------|--------|--------|--------------------------|
@@ -78,7 +89,8 @@ balanced_tree.sales contains product level information for all the transactions 
 | f084eb  |  3  |  36   |    21    |   t    | 26cc98 | 2021-01-19 01:39:00.3456 |
 | c4a632  |  1  |  13   |    21    |   f    | ef648d | 2021-01-27 02:18:17.1648 |
 
-
+  
+</details>
 
 <br><br><br><br>
 
