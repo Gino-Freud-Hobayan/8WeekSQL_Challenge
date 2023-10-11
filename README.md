@@ -16,7 +16,7 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 
 # **1.) Danny's Diner**
 
-<img width="320" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
+<img width="350" alt="Dannys Diner img" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/64af7ab9-d0d9-4607-9e42-1c22184999ff">
 
 ### **PDF 👉 https://drive.google.com/file/d/1jLHWro41mbfpemUymKv97JmIPyvwgbmz/view?usp=sharing**
 
@@ -30,7 +30,7 @@ It's an excellent way to apply all the theoretical SQL knowledge I learned from 
 
 # **7.) Balanced Tree Clothing Co.**
 
-<img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/735f7f93-e44d-4668-9d24-d5cff9279e68" alt="7 pic" width="450" height="450">
+<img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/735f7f93-e44d-4668-9d24-d5cff9279e68" alt="7 pic" width="350" height="350">
 
 ### **Link to my Solution 👉 https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/tree/main/7.)%20Balanced%20Tree%20Clothing%20Store**
 
