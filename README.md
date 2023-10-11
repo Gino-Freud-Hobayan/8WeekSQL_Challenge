@@ -12,7 +12,7 @@ I used the following:
 <br>
 
 - **Microsoft SQL Server** for Case Study #1 - Danny's Diner.
-- **PostgreSQL** for Case Study #7 - Balanced Tree Clothing Co. (Using DB fiddle)
+- **PostgreSQL (Using DB fiddle)** for Case Study #7 - Balanced Tree Clothing Co. 
 
 
 
