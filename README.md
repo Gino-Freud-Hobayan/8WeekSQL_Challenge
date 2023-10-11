@@ -4,8 +4,13 @@ SQL Case studies done by Gino Hobayan
 
 Learning SQL, one code at a time.
 
-I used **Microsoft SQL Server** for Case Study #1 - Danny's Diner, <br>
-It's an excellent way to apply all the theoretical SQL knowledge I learned from DataCamp and the Google Data Analytics Certificate.
+This SQL Challenge is an excellent way to apply all the theoretical SQL knowledge I learned from DataCamp's SQL Fundamentals and the Google Data Analytics Certificate.
+
+<br>
+
+I used **Microsoft SQL Server** for Case Study #1 - Danny's Diner.
+
+
 
 
 
