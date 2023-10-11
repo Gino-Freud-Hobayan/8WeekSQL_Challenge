@@ -30,6 +30,8 @@ Danny, the CEO of this trendy fashion company has asked you to **assist the team
 
 ## (ERD) ENTITY RELATIONSHIP DIAGRAM:
 
+<img width="600" alt="Balanced Tree - EDA" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/037909e3-f5cf-4d78-addd-597e68951c7e">
+
 
 
 
