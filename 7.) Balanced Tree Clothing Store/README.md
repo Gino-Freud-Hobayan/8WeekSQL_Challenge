@@ -156,7 +156,42 @@ RESULT:
 ```sql
 -- 2. Calculate the total generated revenue for all products before discounts
 
+SELECT
+	prod.product_id,
+	prod.product_name,
+	SUM(sales.qty * sales.price) AS total_revenue_before_discount
 
+FROM
+	balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY 
+	prod.product_id, 
+	prod.product_name
+    
+ ORDER BY total_revenue_before_discount DESC
+ 
+
+-- very similar to the 1st query, we just added a calculation to get the revenue by multiplying quantity and price.
+
+
+RESULT:
+
+| product_id | product_name                     | total_revenue_before_discount |
+| ---------- | -------------------------------- | ----------------------------- |
+| 2a2353     | Blue Polo Shirt - Mens           | 217683                        |
+| 9ec847     | Grey Fashion Jacket - Womens     | 209304                        |
+| 5d267b     | White Tee Shirt - Mens           | 152000                        |
+| f084eb     | Navy Solid Socks - Mens          | 136512                        |
+| e83aa3     | Black Straight Jeans - Womens    | 121152                        |
+| 2feb6b     | Pink Fluro Polkadot Socks - Mens | 109330                        |
+| d5e9a6     | Khaki Suit Jacket - Womens       | 86296                         |
+| 72f5d4     | Indigo Rain Jacket - Womens      | 71383                         |
+| b9a74d     | White Striped Socks - Mens       | 62135                         |
+| c4a632     | Navy Oversized Jeans - Womens    | 50128                         |
+| e31d39     | Cream Relaxed Jeans - Womens     | 37070                         |
+| c8d436     | Teal Button Up Shirt - Mens      | 36460                         |
 
 ```
 
