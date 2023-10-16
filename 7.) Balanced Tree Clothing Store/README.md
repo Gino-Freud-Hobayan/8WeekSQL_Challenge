@@ -96,6 +96,9 @@ balanced_tree.sales contains product level information for all the transactions 
 
 <br><br><br><br>
 
+### We're going to skip DDL and DML since I solved this using DB Fiddle and the data is already clean.
+
+<br><br><br><br>
 
 # DATA QUERY LANGUAGE (DQL):
 
