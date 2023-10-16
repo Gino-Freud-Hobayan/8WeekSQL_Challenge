@@ -1,11 +1,16 @@
 
 # CASE STUDY #7 - Balanced Tree Clothing Co.
-### SOLVED BY: [GINO FREUD D. HOBAYAN](https://gino-freud-hobayan.github.io/)
+### SOLVED BY: GINO FREUD D. HOBAYAN
+### LINK TO MY PORTFOLIO 👉 https://gino-freud-hobayan.github.io/
 
 
 <img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/735f7f93-e44d-4668-9d24-d5cff9279e68" alt="7 pic" width="450" height="450">
 
-https://8weeksqlchallenge.com/case-study-7/
+<br><br>
+
+
+Source: https://8weeksqlchallenge.com/case-study-7/
+
 
 <br>
 
