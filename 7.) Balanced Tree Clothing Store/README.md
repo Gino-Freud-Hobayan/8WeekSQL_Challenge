@@ -191,7 +191,7 @@ GROUP BY
  ORDER BY total_revenue_before_discount DESC
  
 
--- very similar to the 1st query, we just added a calculation to get the revenue by multiplying quantity and price.
+-- very similar to the 1st query, we just added a calculation (revenue = qty * price).
 
 
 RESULT:
@@ -220,6 +220,55 @@ RESULT:
 
 ```sql
 -- 3. Calculate the total discount amount for all products
+
+
+SELECT
+	prod.product_id,
+	prod.product_name,
+	SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount_amount
+
+FROM
+	balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY 
+	prod.product_id, 
+	prod.product_name
+    
+ ORDER BY total_discount_amount DESC
+ 
+ 
+/*
+
+price * quantity * discount / 100
+
+
+since the discount column represents the discount as a percentage (ex: 17% discount)
+and we want to calculate the total discount amount in monetary values.
+
+The division by 100 is necessary to convert the discount from a percentage (ex: 17% discount)
+to a decimal before applying it to the price and quantity. 
+
+*/
+
+
+RESULT:
+
+| product_id | product_name                     | total_discount_amount |
+| ---------- | -------------------------------- | --------------------- |
+| 2a2353     | Blue Polo Shirt - Mens           | 26189                 |
+| 9ec847     | Grey Fashion Jacket - Womens     | 24781                 |
+| 5d267b     | White Tee Shirt - Mens           | 17968                 |
+| f084eb     | Navy Solid Socks - Mens          | 16059                 |
+| e83aa3     | Black Straight Jeans - Womens    | 14156                 |
+| 2feb6b     | Pink Fluro Polkadot Socks - Mens | 12344                 |
+| d5e9a6     | Khaki Suit Jacket - Womens       | 9660                  |
+| 72f5d4     | Indigo Rain Jacket - Womens      | 8010                  |
+| b9a74d     | White Striped Socks - Mens       | 6877                  |
+| c4a632     | Navy Oversized Jeans - Womens    | 5538                  |
+| e31d39     | Cream Relaxed Jeans - Womens     | 3979                  |
+| c8d436     | Teal Button Up Shirt - Mens      | 3925                  |
 
 
 ```
