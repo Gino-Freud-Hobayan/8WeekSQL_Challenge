@@ -318,6 +318,39 @@ RESULT:
 -- 2. Calculate the average unique products purchased in each transaction
 
 
+WITH CTE_unique_product_count AS 
+(
+SELECT
+	txn_id,
+	COUNT(DISTINCT prod.product_name) AS unique_product_count
+
+FROM
+	balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY txn_id
+)
+
+
+SELECT
+    ROUND(AVG(unique_product_count),2) AS average_unique_products
+FROM
+    CTE_unique_product_count
+
+
+
+
+
+RESULT:
+
+| average_unique_products |
+| ----------------------- |
+| 6.04                    |
+
+-- 6.04 is the average unique products purchased in each transaction
+
+
 ```
 
 
