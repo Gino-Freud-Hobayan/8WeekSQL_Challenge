@@ -340,8 +340,6 @@ FROM
 
 
 
-
-
 RESULT:
 
 | average_unique_products |
