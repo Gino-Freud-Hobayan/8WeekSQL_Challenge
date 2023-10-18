@@ -241,7 +241,7 @@ GROUP BY
  
 /*
 
-price * quantity * discount / 100
+qty * price * discount / 100       =    total_discount_amount
 
 
 since the discount column represents the discount as a percentage (ex: 17% discount)
