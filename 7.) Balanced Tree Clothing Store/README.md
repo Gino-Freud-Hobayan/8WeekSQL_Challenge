@@ -99,7 +99,15 @@ balanced_tree.sales contains product level information for all the transactions 
   
 </details>
 
-<br><br><br><br>
+<br><br><br><br><br>
+
+## Case Study Questions
+The following questions can be considered key business questions and metrics that the Balanced Tree team requires for their monthly reports.
+
+<img width="500" alt="Case Study 7 - questions" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/c0d180f0-dbeb-4e98-a9c0-2c27617035a2">
+
+
+<br><br><br><br><br><br>
 
 ## SQL COMMANDS:
 
