@@ -4,6 +4,8 @@ SQL Case studies done by Gino Hobayan
 
 Getting better at SQL, one line of code at a time.
 
+<br>
+
 This SQL Challenge is an excellent way to apply all the theoretical SQL knowledge I learned from DataCamp's SQL Fundamentals and the Google Data Analytics Certificate.
 
 <br>
