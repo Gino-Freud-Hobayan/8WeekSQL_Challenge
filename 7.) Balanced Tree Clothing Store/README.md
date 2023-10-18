@@ -2,19 +2,20 @@
 # CASE STUDY #7 - Balanced Tree Clothing Co.
 ### SOLVED BY: [GINO FREUD D. HOBAYAN](https://gino-freud-hobayan.github.io/) 
 
+### Solved using DB Fiddle (PostgreSQL) : https://www.db-fiddle.com/f/dkhULDEjGib3K58MvDjYJr/8
 
 <img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/735f7f93-e44d-4668-9d24-d5cff9279e68" alt="7 pic" width="450" height="450">
 
-<br><br>
-
-
-Source: https://8weeksqlchallenge.com/case-study-7/
 
 
 <br>
 
-### Solved using DB Fiddle (PostgreSQL) : https://www.db-fiddle.com/f/dkhULDEjGib3K58MvDjYJr/8
+Source: https://8weeksqlchallenge.com/case-study-7/
 
+
+<br><br>
+
+This is a good way of applying what I've learned from DataCamp's **[Analyzing Business Data in SQL](https://drive.google.com/drive/folders/1bm1W18TAGXojI2IHp__xf7eBKgKlVBRb)** course.
 
 
 <br><br><br>
