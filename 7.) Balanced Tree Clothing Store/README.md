@@ -463,8 +463,6 @@ RESULT:
 ```sql
 -- 6. Calculate the average revenue for member transactions and non-member transactions
 
--- 6. Calculate the average revenue for member transactions and non-member transactions
-
 
 WITH CTE_member_txn AS 
 (
