@@ -570,7 +570,9 @@ RESULT:
 ```sql
 -- 3. Identify the top-selling product for each segment
 
-RANK(revenue) OVER (PARTITION BY segment)?
+-- top-selling = qty?
+
+RANK(qty) OVER (PARTITION BY segment)?
 
 ```
 
