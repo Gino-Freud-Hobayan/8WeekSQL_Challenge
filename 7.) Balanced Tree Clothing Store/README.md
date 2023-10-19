@@ -463,6 +463,49 @@ RESULT:
 ```sql
 -- 6. Calculate the average revenue for member transactions and non-member transactions
 
+-- 6. Calculate the average revenue for member transactions and non-member transactions
+
+
+WITH CTE_member_txn AS 
+(
+SELECT
+	txn_id,
+	SUM(qty * price) AS "member_revenue"
+FROM balanced_tree.sales
+WHERE member = 't'
+GROUP BY txn_id
+),
+
+CTE_non_member_txn AS 
+(
+SELECT
+	txn_id,
+	SUM(qty * price) AS "non_member_revenue"
+FROM balanced_tree.sales
+WHERE member = 'f'
+GROUP BY txn_id
+)
+
+
+SELECT
+	ROUND(AVG(member_revenue), 2) AS "Average revenue for member transactions",
+	ROUND(AVG(non_member_revenue), 2) AS "Average revenue for non-member transactions"
+
+FROM CTE_member_txn
+FULL OUTER JOIN CTE_non_member_txn
+USING (txn_id)
+
+
+
+
+RESULT:
+
+| Average revenue for member transactions | Average revenue for non-member transactions |
+| --------------------------------------- | ------------------------------------------- |
+| 516.27                                  | 515.04                                      |
+
+
+-- The Average revenue for members and non-members is almost the same, There's no big gap.
 
 ```
 
