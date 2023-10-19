@@ -578,8 +578,8 @@ SELECT
 	prod.product_id,
 	prod.product_name,
  	prod.segment_id,
-    prod.segment_name,
-    SUM(sales.qty) AS SUM_of_qty_sold
+	prod.segment_name,
+	SUM(sales.qty) AS SUM_of_qty_sold
 
 FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
@@ -589,7 +589,7 @@ GROUP BY
 	prod.product_id,
 	prod.product_name,
  	prod.segment_id,
-    prod.segment_name
+	prod.segment_name
 ORDER BY SUM_of_qty_sold DESC
 ),
 
