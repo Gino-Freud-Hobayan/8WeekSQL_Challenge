@@ -370,6 +370,36 @@ RESULT:
 ```sql
 -- 3. Find the 25th, 50th, and 75th percentile values for the revenue per transaction
 
+WITH CalculatedRevenue AS 
+(
+    SELECT
+        txn_id,
+        price,
+        qty,
+        (price * qty) AS Revenue
+	
+  	FROM balanced_tree.sales AS sales
+)
+
+
+-- (Percentiles) Revenue per Transaction
+
+SELECT
+    PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY Revenue) AS "25th Percentile Revenue",
+    PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY Revenue) AS "50th Percentile Revenue (Median)",
+    PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY Revenue) AS "75th Percentile Revenue"
+
+FROM
+    CalculatedRevenue;
+
+
+
+
+RESULT:
+
+| 25th Percentile Revenue | 50th Percentile Revenue (Median) | 75th Percentile Revenue |
+| ----------------------- | -------------------------------- | ----------------------- |
+| 38                      | 65                               | 116                     |
 
 ```
 
