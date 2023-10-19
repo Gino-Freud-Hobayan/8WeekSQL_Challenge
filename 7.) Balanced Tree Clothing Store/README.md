@@ -412,18 +412,16 @@ RESULT:
 
 WITH CTE_txnid_discount AS 
 (
-	SELECT
-		txn_id,
-		SUM(qty * price * discount)/100 AS total_discount
-  
-	FROM balanced_tree.sales
-	GROUP BY txn_id
+SELECT
+	txn_id,
+	SUM(qty * price * discount)/100 AS total_discount
+FROM balanced_tree.sales
+GROUP BY txn_id
 )
 
 
 SELECT
 	ROUND(AVG(total_discount), 0) AS "average discount value per transaction"
-    
 FROM CTE_txnid_discount;
 
 
