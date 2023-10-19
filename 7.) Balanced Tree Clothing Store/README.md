@@ -368,7 +368,11 @@ RESULT:
 
 
 ```sql
+
 -- 3. Find the 25th, 50th, and 75th percentile values for the revenue per transaction
+
+-- (Percentiles) Revenue per Transaction
+
 
 WITH CTE_txnid_revenue AS 
 (
@@ -382,7 +386,6 @@ GROUP BY txn_id
 )
 
 
--- (Percentiles) Revenue per Transaction
 
 SELECT
     PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY revenue) AS "25th Percentile Revenue",
