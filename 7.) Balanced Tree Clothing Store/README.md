@@ -143,8 +143,7 @@ SELECT
 	prod.product_name,
 	SUM(sales.qty) AS total_qty_sold
 
-FROM
-	balanced_tree.product_details AS prod
+FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
 ON prod.product_id = sales.prod_id
 
@@ -188,8 +187,7 @@ SELECT
 	prod.product_name,
 	SUM(sales.qty * sales.price) AS total_revenue_before_discount
 
-FROM
-	balanced_tree.product_details AS prod
+FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
 ON prod.product_id = sales.prod_id
 
@@ -236,8 +234,7 @@ SELECT
 	prod.product_name,
 	SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount_amount
 
-FROM
-	balanced_tree.product_details AS prod
+FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
 ON prod.product_id = sales.prod_id
 
@@ -300,11 +297,9 @@ RESULT:
 
 -- 1. Count the number of unique transactions
 
-SELECT
-	COUNT(DISTINCT txn_id)	AS UNIQUE_COUNT_OF_TRANSACTIONS
+SELECT COUNT(DISTINCT txn_id)	AS UNIQUE_COUNT_OF_TRANSACTIONS
     
-FROM
-	balanced_tree.sales
+FROM balanced_tree.sales
 
 
 
@@ -333,8 +328,7 @@ SELECT
 	txn_id,
 	COUNT(DISTINCT prod.product_name) AS unique_product_count
 
-FROM
-	balanced_tree.product_details AS prod
+FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
 ON prod.product_id = sales.prod_id
 
@@ -524,6 +518,32 @@ RESULT:
 
 -- 1. Find the top 3 products by total revenue before discount
 
+SELECT
+	prod.product_id,
+	prod.product_name,
+	SUM(sales.qty * sales.price) AS total_revenue_before_discount
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY 
+	prod.product_id, 
+	prod.product_name
+ ORDER BY total_revenue_before_discount DESC
+ LIMIT 3
+
+
+-- Basically the same query earlier. Just used LIMIT to limit the results to the top 3.
+
+
+RESULT:
+
+| product_id | product_name                 | total_revenue_before_discount |
+| ---------- | ---------------------------- | ----------------------------- |
+| 2a2353     | Blue Polo Shirt - Mens       | 217683                        |
+| 9ec847     | Grey Fashion Jacket - Womens | 209304                        |
+| 5d267b     | White Tee Shirt - Mens       | 152000                        |
 
 ```
 
