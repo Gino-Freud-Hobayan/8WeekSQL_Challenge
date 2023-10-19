@@ -572,7 +572,53 @@ RESULT:
 
 -- top-selling = qty?
 
-RANK(qty) OVER (PARTITION BY segment)?
+WITH CTE_1 AS
+(
+SELECT
+	prod.product_id,
+	prod.product_name,
+ 	prod.segment_id,
+    prod.segment_name,
+    SUM(sales.qty) AS SUM_of_qty_sold
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY
+	prod.product_id,
+	prod.product_name,
+ 	prod.segment_id,
+    prod.segment_name
+ORDER BY SUM_of_qty_sold DESC
+),
+
+
+CTE_2 AS
+(
+SELECT
+	*,
+    RANK() OVER (PARTITION BY segment_name ORDER BY SUM_of_qty_sold DESC) AS Rank_of_qty_by_segment
+
+FROM CTE_1
+)
+
+
+SELECT *
+FROM CTE_2
+WHERE Rank_of_qty_by_segment = 1
+
+
+-- These are the top-selling products per segment (in terms of qty sold).
+RESULT:
+
+| product_id | product_name                  | segment_id | segment_name | sum_of_qty_sold | rank_of_qty_by_segment |
+| ---------- | ----------------------------- | ---------- | ------------ | --------------- | ---------------------- |
+| 9ec847     | Grey Fashion Jacket - Womens  | 4          | Jacket       | 3876            | 1                      |
+| c4a632     | Navy Oversized Jeans - Womens | 3          | Jeans        | 3856            | 1                      |
+| 2a2353     | Blue Polo Shirt - Mens        | 5          | Shirt        | 3819            | 1                      |
+| f084eb     | Navy Solid Socks - Mens       | 6          | Socks        | 3792            | 1                      |
+
 
 ```
 
