@@ -443,6 +443,36 @@ RESULT:
 ```sql
 -- 5. Determine the percentage split of all transactions for members vs. non-members
 
+WITH CTE_percentage_split AS 
+(
+SELECT
+	SUM(CASE WHEN member = 't' THEN 1 ELSE 0 END) * 100.0 / 
+	(SELECT COUNT(*) FROM balanced_tree.sales) as members, 
+	
+    SUM(CASE WHEN member = 'f' THEN 1 ELSE 0 END) * 100.0 / 
+	(SELECT COUNT(*) FROM balanced_tree.sales) as non_members 
+    
+FROM balanced_tree.sales
+)
+
+
+SELECT
+	ROUND(members,2) AS members_percentage_split,
+    ROUND(non_members,2) AS non_members_percentage_split
+    
+FROM CTE_percentage_split
+
+
+
+
+RESULT:
+-- members txn count = 1505 (60%)
+-- non-members txn count = 995 (40%)
+
+| members_percentage_split | non_members_percentage_split |
+| ------------------------ | ---------------------------- |
+| 60.03                    | 39.97                        |
+
 
 ```
 
