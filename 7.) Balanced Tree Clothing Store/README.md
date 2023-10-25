@@ -449,10 +449,10 @@ WITH CTE_percentage_split AS
 (
 SELECT
 	SUM(CASE WHEN member = 't' THEN 1 ELSE 0 END) * 100.0 / 
-	(SELECT COUNT(*) FROM balanced_tree.sales) as members, 
+	(SELECT COUNT(*) FROM balanced_tree.sales) AS members, 
 	
     SUM(CASE WHEN member = 'f' THEN 1 ELSE 0 END) * 100.0 / 
-	(SELECT COUNT(*) FROM balanced_tree.sales) as non_members 
+	(SELECT COUNT(*) FROM balanced_tree.sales) AS non_members 
     
 FROM balanced_tree.sales
 )
@@ -460,7 +460,7 @@ FROM balanced_tree.sales
 
 SELECT
 	ROUND(members,2) AS members_percentage_split,
-    ROUND(non_members,2) AS non_members_percentage_split
+	ROUND(non_members,2) AS non_members_percentage_split
     
 FROM CTE_percentage_split
 
