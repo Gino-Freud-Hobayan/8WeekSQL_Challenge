@@ -590,8 +590,8 @@ SELECT
 	segment_id,
 	segment_name,
 	SUM(sales.qty) AS total_qty,
-    SUM(sales.qty * sales.price) AS total_revenue,
-    SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount
+	SUM(sales.qty * sales.price) AS total_revenue,
+	SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount
 
 FROM balanced_tree.product_details AS prod
 INNER JOIN balanced_tree.sales AS sales
@@ -686,6 +686,34 @@ RESULT:
 
 ```sql
 -- 4. Calculate the total quantity, revenue, and discount for each category
+
+
+-- very similar to the Segment query (Question #2)
+
+SELECT
+	category_id,
+	category_name,
+	SUM(sales.qty) AS total_qty,
+	SUM(sales.qty * sales.price) AS total_revenue,
+	SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY category_id, category_name
+ORDER BY category_id
+
+
+
+
+RESULT:
+
+| category_id | category_name | total_qty | total_revenue | total_discount |
+| ----------- | ------------- | --------- | ------------- | -------------- |
+| 1           | Womens        | 22734     | 575333        | 66124          |
+| 2           | Mens          | 22482     | 714120        | 83362          |
+
 
 
 ```
