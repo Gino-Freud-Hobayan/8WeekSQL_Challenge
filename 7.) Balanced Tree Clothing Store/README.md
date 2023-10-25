@@ -203,6 +203,8 @@ GROUP BY
 
 RESULT:
 
+-- Total revenue for all products: 1,289,453
+
 | product_id | product_name                     | total_revenue_before_discount |
 | ---------- | -------------------------------- | ----------------------------- |
 | 2a2353     | Blue Polo Shirt - Mens           | 217683                        |
