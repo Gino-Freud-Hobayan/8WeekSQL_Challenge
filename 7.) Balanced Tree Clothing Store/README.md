@@ -586,6 +586,31 @@ RESULT:
 ```sql
 -- 2. Calculate the total quantity, revenue, and discount for each segment
 
+SELECT
+	segment_id,
+	segment_name,
+	SUM(sales.qty) AS total_qty,
+    SUM(sales.qty * sales.price) AS total_revenue,
+    SUM(sales.qty * sales.price * sales.discount / 100) AS total_discount
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY segment_id, segment_name
+ORDER BY segment_id
+
+
+RESULT:
+
+| segment_id | segment_name | total_qty | total_revenue | total_discount |
+| ---------- | ------------ | --------- | ------------- | -------------- |
+| 3          | Jeans        | 11349     | 208350        | 23673          |
+| 4          | Jacket       | 11385     | 366983        | 42451          |
+| 5          | Shirt        | 11265     | 406143        | 48082          |
+| 6          | Socks        | 11217     | 307977        | 35280          |
+
+
 
 ```
 
