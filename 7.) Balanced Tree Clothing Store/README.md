@@ -676,6 +676,57 @@ RESULT:
 -- 5. Identify the top-selling product for each category
 
 
+-- very similar to question # 3, I just replaced segment with category.
+
+WITH CTE_1 AS
+(
+SELECT
+	prod.product_id,
+	prod.product_name,
+ 	prod.category_id,
+	prod.category_name,
+	SUM(sales.qty) AS SUM_of_qty_sold
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales
+ON prod.product_id = sales.prod_id
+
+GROUP BY
+	prod.product_id,
+	prod.product_name,
+ 	prod.category_id,
+	prod.category_name
+ORDER BY SUM_of_qty_sold DESC
+),
+
+
+CTE_2 AS
+(
+SELECT
+	*,
+    RANK() OVER (PARTITION BY category_name ORDER BY SUM_of_qty_sold DESC) AS Rank_of_qty_by_CATEGORY
+
+FROM CTE_1
+)
+
+
+SELECT *
+FROM CTE_2
+WHERE Rank_of_qty_by_CATEGORY = 1
+
+
+
+-- These are the top-selling products per CATEGORY (in terms of qty sold).
+
+RESULT:
+
+
+| product_id | product_name                 | category_id | category_name | sum_of_qty_sold | rank_of_qty_by_category |
+| ---------- | ---------------------------- | ----------- | ------------- | --------------- | ----------------------- |
+| 2a2353     | Blue Polo Shirt - Mens       | 2           | Mens          | 3819            | 1                       |
+| 9ec847     | Grey Fashion Jacket - Womens | 1           | Womens        | 3876            | 1                       |
+
+
 ```
 
 
