@@ -779,7 +779,7 @@ RESULT:
 ```sql
 /* 
 9. Calculate the total transaction "penetration" for each product 
-(penetration = number of transactions where at least 1 quantity of a product was purchased divided by total number of transactions)
+(penetration = no. of transactions where at least 1 qty of a product was purchased / by total number of transactions)
 */
 
 
