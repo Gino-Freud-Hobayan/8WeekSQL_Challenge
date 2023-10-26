@@ -451,7 +451,7 @@ SELECT
 	SUM(CASE WHEN member = 't' THEN 1 ELSE 0 END) * 100.0 / 
 	(SELECT COUNT(*) FROM balanced_tree.sales) AS members, 
 	
-    SUM(CASE WHEN member = 'f' THEN 1 ELSE 0 END) * 100.0 / 
+	SUM(CASE WHEN member = 'f' THEN 1 ELSE 0 END) * 100.0 / 
 	(SELECT COUNT(*) FROM balanced_tree.sales) AS non_members 
     
 FROM balanced_tree.sales
