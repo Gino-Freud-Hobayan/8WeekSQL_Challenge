@@ -844,8 +844,8 @@ GROUP BY
 
 SELECT
 	category_name,
-    total_revenue,
-    ROUND( ( total_revenue / SUM(total_revenue) OVER() ) ,2)* 100 AS percentage
+	total_revenue,
+	ROUND( ( total_revenue / SUM(total_revenue) OVER() ) ,2)* 100 AS percentage
      
 FROM CTE_revenue_per_category
 
