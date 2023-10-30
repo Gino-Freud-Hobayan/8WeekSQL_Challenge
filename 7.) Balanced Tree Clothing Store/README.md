@@ -989,6 +989,70 @@ RESULT:
 */
 
 
+WITH CTE_penetration AS
+(
+SELECT
+	product_name,
+
+	COUNT(DISTINCT txn_id) AS transaction_with_at_least_1_qty_purchased,
+  
+	(SELECT COUNT(DISTINCT txn_id) FROM balanced_tree.sales) AS total_no_of_transactions,
+
+  
+	COUNT(DISTINCT txn_id)*100.0 
+	/ 
+	(SELECT COUNT(DISTINCT txn_id) FROM balanced_tree.sales) 
+	AS penetration
+     
+     
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales 
+ON prod.product_id = sales.prod_id
+
+WHERE qty > 0
+
+GROUP BY product_name
+
+ORDER BY penetration DESC
+)
+
+
+
+SELECT
+	product_name,
+
+	transaction_with_at_least_1_qty_purchased,
+
+	total_no_of_transactions,
+	
+	ROUND(penetration,2) AS "penetration (%)"
+
+FROM CTE_penetration
+
+
+
+
+
+RESULT:
+
+| product_name                     | transaction_with_at_least_1_qty_purchased | total_no_of_transactions | penetration (%) |
+| -------------------------------- | ----------------------------------------- | ------------------------ | --------------- |
+| Navy Solid Socks - Mens          | 1281                                      | 2500                     | 51.24           |
+| Grey Fashion Jacket - Womens     | 1275                                      | 2500                     | 51.00           |
+| Navy Oversized Jeans - Womens    | 1274                                      | 2500                     | 50.96           |
+| White Tee Shirt - Mens           | 1268                                      | 2500                     | 50.72           |
+| Blue Polo Shirt - Mens           | 1268                                      | 2500                     | 50.72           |
+| Pink Fluro Polkadot Socks - Mens | 1258                                      | 2500                     | 50.32           |
+| Indigo Rain Jacket - Womens      | 1250                                      | 2500                     | 50.00           |
+| Khaki Suit Jacket - Womens       | 1247                                      | 2500                     | 49.88           |
+| Black Straight Jeans - Womens    | 1246                                      | 2500                     | 49.84           |
+| Cream Relaxed Jeans - Womens     | 1243                                      | 2500                     | 49.72           |
+| White Striped Socks - Mens       | 1243                                      | 2500                     | 49.72           |
+| Teal Button Up Shirt - Mens      | 1242                                      | 2500                     | 49.68           |
+
+
+
+
 ```
 
 
