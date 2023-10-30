@@ -983,11 +983,6 @@ RESULT:
 
 
 ```sql
-/* 
-9. Calculate the total transaction "penetration" for each product 
-(penetration = no. of transactions where at least 1 qty of a product was purchased / by total number of transactions)
-*/
-
 
 /* 
 9. Calculate the total transaction "penetration" for each product 
@@ -1000,12 +995,14 @@ WITH CTE_penetration AS
 SELECT
 	product_name,
 
-	COUNT(DISTINCT txn_id) AS transactions_groupedby_productname,
+	-- transactions GROUP BY product_name
+	COUNT(DISTINCT txn_id) AS transaction_with_at_least_1_qty_purchased,
   
-	-- subquery
+	-- (subquery) total num of transactions
 	(SELECT COUNT(DISTINCT txn_id) FROM balanced_tree.sales) AS total_no_of_transactions,
 
-  
+
+	-- computation
 	COUNT(DISTINCT txn_id)*100.0
 	/ 
 	(SELECT COUNT(DISTINCT txn_id) FROM balanced_tree.sales)
@@ -1028,7 +1025,7 @@ ORDER BY penetration DESC
 SELECT
 	product_name,
 
-	transactions_groupedby_productname AS transaction_with_at_least_1_qty_purchased,
+	transaction_with_at_least_1_qty_purchased,
 
 	total_no_of_transactions,
 	
