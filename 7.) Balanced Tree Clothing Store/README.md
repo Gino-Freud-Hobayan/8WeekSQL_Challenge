@@ -868,6 +868,53 @@ RESULT:
 -- 7. Determine the percentage split of revenue by segment for each category
 
 
+
+WITH CTE_total_revenue AS
+(
+SELECT
+	category_name,
+	segment_name,
+  
+	
+	SUM( SUM(sales.qty * sales.price) ) OVER (PARTITION BY segment_name) AS total_revenue_per_segment,
+
+	SUM( SUM(sales.qty * sales.price) ) OVER (PARTITION BY category_name) AS total_revenue_per_category
+
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales 
+ON prod.product_id = sales.prod_id
+
+GROUP BY 
+	category_name,
+	segment_name
+)
+
+
+SELECT
+	*,
+	ROUND(  (total_revenue_per_segment / total_revenue_per_category)  ,3) * 100 AS "percentage (%)"
+
+FROM CTE_total_revenue
+
+ORDER BY category_name
+
+
+
+
+
+RESULT:
+
+| category_name | segment_name | total_revenue_per_segment | total_revenue_per_category | percentage (%) |
+| ------------- | ------------ | ------------------------- | -------------------------- | -------------- |
+| Mens          | Shirt        | 406143                    | 714120                     | 56.900         |
+| Mens          | Socks        | 307977                    | 714120                     | 43.100         |
+| Womens        | Jacket       | 366983                    | 575333                     | 63.800         |
+| Womens        | Jeans        | 208350                    | 575333                     | 36.200         |
+
+
+
+
 ```
 
 
