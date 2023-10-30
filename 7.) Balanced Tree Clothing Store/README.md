@@ -468,12 +468,17 @@ FROM CTE_percentage_split
 
 
 RESULT:
--- members txn count = 1505 (60%)
--- non-members txn count = 995 (40%)
+-- members transactionn count = 1505 (60%)
+-- non-members transactionn count = 995 (40%)
 
 | members_percentage_split | non_members_percentage_split |
 | ------------------------ | ---------------------------- |
 | 60.03                    | 39.97                        |
+
+
+
+-- Members have a higher transaction count, they may also contribute a larger portion of the total revenue.
+-- Retaining and attracting more members could be beneficial for the business in terms of revenue
 
 
 ```
@@ -795,6 +800,61 @@ RESULT:
 -- 6. Determine the percentage split of revenue by product for each segment
 
 
+
+WITH CTE_total_revenue AS
+(
+SELECT
+	segment_name,
+	product_name,
+  
+	SUM(sales.qty * sales.price) AS total_revenue_per_product,
+	
+	SUM( SUM(sales.qty * sales.price) ) OVER (PARTITION BY segment_name) AS total_revenue_per_segment
+
+
+FROM balanced_tree.product_details AS prod
+INNER JOIN balanced_tree.sales AS sales 
+ON prod.product_id = sales.prod_id
+
+GROUP BY 
+	segment_name, 
+	product_name
+)
+
+
+SELECT
+	*,
+	ROUND(  (total_revenue_per_product / total_revenue_per_segment)  ,3) * 100 AS "percentage (%)"
+
+FROM CTE_total_revenue
+
+ORDER BY segment_name
+
+
+
+
+
+
+RESULT:
+
+| segment_name | product_name                     | total_revenue_per_product | total_revenue_per_segment | percentage (%) |
+| ------------ | -------------------------------- | ------------------------- | ------------------------- | -------------- |
+| Jacket       | Indigo Rain Jacket - Womens      | 71383                     | 366983                    | 19.500         |
+| Jacket       | Khaki Suit Jacket - Womens       | 86296                     | 366983                    | 23.500         |
+| Jacket       | Grey Fashion Jacket - Womens     | 209304                    | 366983                    | 57.000         |
+| Jeans        | Navy Oversized Jeans - Womens    | 50128                     | 208350                    | 24.100         |
+| Jeans        | Black Straight Jeans - Womens    | 121152                    | 208350                    | 58.100         |
+| Jeans        | Cream Relaxed Jeans - Womens     | 37070                     | 208350                    | 17.800         |
+| Shirt        | White Tee Shirt - Mens           | 152000                    | 406143                    | 37.400         |
+| Shirt        | Blue Polo Shirt - Mens           | 217683                    | 406143                    | 53.600         |
+| Shirt        | Teal Button Up Shirt - Mens      | 36460                     | 406143                    | 9.000          |
+| Socks        | Navy Solid Socks - Mens          | 136512                    | 307977                    | 44.300         |
+| Socks        | White Striped Socks - Mens       | 62135                     | 307977                    | 20.200         |
+| Socks        | Pink Fluro Polkadot Socks - Mens | 109330                    | 307977                    | 35.500         |
+
+
+
+
 ```
 
 
@@ -844,8 +904,8 @@ GROUP BY
 
 SELECT
 	category_name,
-	total_revenue,
-	ROUND(   ( total_revenue / SUM(total_revenue) OVER() )   ,2)* 100 AS percentage
+    total_revenue,
+    ROUND(   ( total_revenue / SUM(total_revenue) OVER() )   ,2)* 100 AS "percentage (%)"
      
 FROM CTE_revenue_per_category
 
@@ -858,10 +918,11 @@ GROUP BY
 
 RESULT:
 
-| category_name | total_revenue | percentage |
-| ------------- | ------------- | ---------- |
-| Mens          | 714120        | 55.00      |
-| Womens        | 575333        | 45.00      |
+| category_name | total_revenue | percentage (%) |
+| ------------- | ------------- | -------------- |
+| Mens          | 714120        | 55.00          |
+| Womens        | 575333        | 45.00          |
+
 
 
 
