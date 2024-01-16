@@ -26,15 +26,15 @@ Danny was sold on the idea, but he knew that pizza alone was not going to help h
 
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters (otherwise known as Danny’s house) and also maxed out his credit card to pay freelance developers to build a mobile app to accept orders from customers.
 
-
-
-Because Danny had a few years of experience as a data scientist - he was very aware that data collection was going to be critical for his business’ growth.
-
-He has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.
-
-
-
 <br><br>
+
+**Because Danny had a few years of experience as a data scientist - he was very aware that data collection was going to be critical for his business’ growth.**
+
+**He has prepared for us an entity relationship diagram of his database design but requires further assistance to clean his data and apply some basic calculations so he can better direct his runners and optimise Pizza Runner’s operations.**
+
+
+
+<br><br><br><br><br>
 
 
 ## (ERD) ENTITY RELATIONSHIP DIAGRAM:
@@ -65,16 +65,53 @@ He has prepared for us an entity relationship diagram of his database design but
 
 
 
-<br><br><br>
-
-
+<br>
 
 Since these tables contain NULL values, we'll have to perform DATA CLEANING first, before we can query and analyze the dataset.
 
 
 
+<br><br><br><br>
 
-<br>
+
+# DATA CLEANING:
+
+### TABLE: customer_orders
+
+```sql
+
+-- 
+
+
+```
+
+<br><br>
+
+
+
+
+
+### TABLE: runner_orders
+
+```sql
+
+-- 
+
+
+```
+
+<br><br>
+
+
+
+
+
+<br><br><br>
+
+
+
+
+# DATA QUERY LANGUAGE:
 
 
 
