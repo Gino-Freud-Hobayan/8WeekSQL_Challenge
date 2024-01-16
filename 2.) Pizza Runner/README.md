@@ -96,7 +96,8 @@ Since these tables contain NULL values, we'll have to perform DATA CLEANING firs
 
 ```sql
 
--- 2. 
+-- 2. How many unique customer orders were made?
+
 
 
 ```
@@ -111,7 +112,8 @@ Since these tables contain NULL values, we'll have to perform DATA CLEANING firs
 
 ```sql
 
--- 3.
+-- 3.) How many successful orders were delivered by each runner?
+
 
 
 ```
@@ -124,6 +126,173 @@ Since these tables contain NULL values, we'll have to perform DATA CLEANING firs
 
 
 
+```sql
+
+-- 4.) How many of each type of pizza was delivered?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+```sql
+
+-- 5.) How many Vegetarian and Meatlovers were ordered by each customer?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+```sql
+
+-- 6.) What was the maximum number of pizzas delivered in a single order?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+```sql
+
+-- 7.) For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+```sql
+
+-- 8.) How many pizzas were delivered that had both exclusions and extras?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+```sql
+
+-- 9.) What was the total volume of pizzas ordered for each hour of the day?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+```sql
+
+-- 10.) What was the volume of orders for each day of the week?
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+
+## B.) Runner and Customer Experience
+
+
+```sql
+
+-- 
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+
+
+```sql
+
+-- 
+
+
+
+```
+
+<br><br>
+
+
+
+
+
+
+```sql
+
+-- 
+
+
+
+```
+
+<br><br>
 
 
 
