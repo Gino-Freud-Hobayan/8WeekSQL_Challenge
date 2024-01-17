@@ -40,7 +40,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ## (ERD) ENTITY RELATIONSHIP DIAGRAM:
 
-<img width="500" alt="ERD - pizza runner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/8557251a-69b7-4d46-97b3-7dbb6d06c9cc">
+<img width="600" alt="ERD - pizza runner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/8557251a-69b7-4d46-97b3-7dbb6d06c9cc">
 
 
 <br><br><br><br>
@@ -128,12 +128,71 @@ FROM clean_customer_orders
 
 ```sql
 
--- 
+
+---------------------------------------
+-- CLEAN TABLE CREATED
+---------------------------------------
+
+SELECT 
+    order_id,
+    runner_id,
+
+    CASE WHEN pickup_time IS NULL THEN ' ' 
+		 ELSE pickup_time END AS pickup_time,
+
+    CASE WHEN distance IS NULL THEN ' '
+         WHEN distance LIKE '%km' THEN TRIM('km' FROM distance)
+         ELSE distance END AS distance,
+
+    CASE WHEN duration IS NULL THEN ' '
+         WHEN duration LIKE '%minutes' THEN TRIM('minutes' FROM duration)
+         WHEN duration LIKE '%minute' THEN TRIM('minute' FROM duration)
+         WHEN duration LIKE '%mins' THEN TRIM('mins' FROM duration)
+         ELSE duration END AS duration,
+
+    CASE WHEN cancellation IS NULL THEN ' ' 
+		 ELSE cancellation END AS cancellation
+
+INTO clean_runner_orders
+
+FROM runner_orders;
+
+
+------------------------------------------
+
+SELECT * 
+FROM clean_runner_orders
+
+```
+
+<img width="500" alt="clean_runner_orders_RESULT" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/b370720c-27b2-43dc-b734-005e783da535">
+
+
+
+
+<br><br>
+
+
+
+```sql
+
+-- Change the data types of the columns
+ALTER TABLE clean_runner_orders
+ALTER COLUMN pickup_time DATETIME;
+
+ALTER TABLE clean_runner_orders
+ALTER COLUMN distance FLOAT;
+
+ALTER TABLE clean_runner_orders
+ALTER COLUMN duration INT;
 
 
 ```
 
+
+
 <br><br>
+
 
 
 
@@ -154,8 +213,16 @@ FROM clean_customer_orders
 
 -- 1. How many pizzas were ordered?
 
+SELECT 
+	COUNT(*) AS pizzas_ordered
+FROM 
+	clean_customer_orders
 
 ```
+
+<img width="101" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/869dd08d-1819-4c29-825a-7fe603332ae1">
+
+
 
 <br><br>
 
@@ -168,9 +235,17 @@ FROM clean_customer_orders
 
 -- 2. How many unique customer orders were made?
 
+SELECT
+	COUNT(DISTINCT order_time) AS unique_orders
 
+FROM clean_customer_orders
 
 ```
+
+<img width="104" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/4605ac78-43be-42b0-ad0f-6558126599fb">
+
+
+
 
 <br><br>
 
