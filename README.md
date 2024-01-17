@@ -33,8 +33,7 @@ I used the following:
 
 **This case study really helped me deepen my understanding of Aggregate functions, Window functions, CASE statements, CTEs, and more.**
 
-<br>
-<br>
+<br><br><br>
 
 
 
@@ -52,8 +51,10 @@ I used the following:
 Got to practice more Data cleaning and SQL queries.
 
 
-<br>
-<br>
+<br><br><br>
+
+
+
 
 
 # **7.) Balanced Tree Clothing Co.**
@@ -68,7 +69,7 @@ Got to practice more Data cleaning and SQL queries.
 
 
 
-<br>
+<br><br>
 
 
 
