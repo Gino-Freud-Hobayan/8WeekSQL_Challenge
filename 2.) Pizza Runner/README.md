@@ -220,7 +220,7 @@ FROM
 
 ```
 
-<img width="101" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/869dd08d-1819-4c29-825a-7fe603332ae1">
+<img width="300" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/869dd08d-1819-4c29-825a-7fe603332ae1">
 
 
 
@@ -242,7 +242,7 @@ FROM clean_customer_orders
 
 ```
 
-<img width="104" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/4605ac78-43be-42b0-ad0f-6558126599fb">
+<img width="300" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/4605ac78-43be-42b0-ad0f-6558126599fb">
 
 
 
