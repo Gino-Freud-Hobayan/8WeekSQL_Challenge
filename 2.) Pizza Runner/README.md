@@ -3,6 +3,7 @@
 
 
 ### SOLVED BY: [GINO FREUD D. HOBAYAN](https://gino-freud-hobayan.github.io/) 
+<img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/6d153ab0-33fc-49be-a668-5017b2b41f53" alt="7 pic" width="450" height="450">
 
 <br>
 
@@ -39,6 +40,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 ## (ERD) ENTITY RELATIONSHIP DIAGRAM:
 
+<img width="500" alt="ERD - pizza runner" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/8557251a-69b7-4d46-97b3-7dbb6d06c9cc">
 
 
 <br><br><br><br>
@@ -80,12 +82,43 @@ Since these tables contain NULL values, we'll have to perform DATA CLEANING firs
 
 ```sql
 
--- 
+-- CREATED a clean table
+
+CREATE TABLE clean_customer_orders
+(
+    order_id INT,
+    customer_id INT,
+    pizza_id INT,
+    exclusions VARCHAR(MAX),
+    extras VARCHAR(MAX),
+    order_time DATETIME2
+);
+
+INSERT INTO clean_customer_orders (order_id, customer_id, pizza_id, exclusions, extras, order_time)
+SELECT 
+    order_id,
+    customer_id,
+    pizza_id,
+    COALESCE(exclusions, ' ') AS exclusions,
+    COALESCE(extras, ' ') AS extras,
+    order_time
+FROM customer_orders;
+
+
+----------------
+
+SELECT *
+FROM clean_customer_orders
 
 
 ```
 
-<br><br>
+<img width="500" alt="clean_customer_orders_RESULT" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/332bea0e-5310-478f-93a0-9faa661a022d">
+
+
+
+
+<br><br><br>
 
 
 
