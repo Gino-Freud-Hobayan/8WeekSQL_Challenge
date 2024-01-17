@@ -13,7 +13,7 @@ This SQL Challenge is an excellent way to apply all the theoretical SQL knowledg
 I used the following: 
 <br>
 
-- **Microsoft SQL Server** for Case Study #1 - Danny's Diner.
+- **Microsoft SQL Server** for Case Study #1 - Danny's Diner and #2 - Pizza Runner
 - **PostgreSQL (Using DB fiddle)** for Case Study #7 - Balanced Tree Clothing Co. 
 
 
