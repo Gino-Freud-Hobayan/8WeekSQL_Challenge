@@ -425,9 +425,23 @@ FROM clean_customer_orders
 
 -- 3.) How many successful orders were delivered by each runner?
 
+SELECT
+	runner_id,
+	COUNT(order_id) AS 'Successful order/s delivered'
 
+FROM clean_runner_orders
+
+WHERE pickup_time > '2000-01-01 00:00:00'	
+
+GROUP BY
+	runner_id
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/d35c8760-457c-4ab5-963d-ce7bcfc0910c">
+
+
+
 
 <br><br>
 
