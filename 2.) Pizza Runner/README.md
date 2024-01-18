@@ -242,7 +242,7 @@ Since these tables contain NULL values, we'll have to perform DATA CLEANING firs
 <br><br><br><br>
 
 
-# DATA CLEANING:
+# (DML) DATA MANIPULATION LANGUAGE & DATA CLEANING:
 
 ### TABLE: customer_orders
 
