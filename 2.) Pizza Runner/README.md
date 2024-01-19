@@ -162,6 +162,21 @@ VALUES
 
 
 
+CREATE TABLE pizza_names2 (
+    "pizza_id" INTEGER,
+    "pizza_name" NVARCHAR(MAX)
+);
+
+INSERT INTO pizza_names2
+    ("pizza_id", "pizza_name")
+VALUES
+    (1, N'Meatlovers'),
+    (2, N'Vegetarian');
+
+
+
+
+
 
 
 
