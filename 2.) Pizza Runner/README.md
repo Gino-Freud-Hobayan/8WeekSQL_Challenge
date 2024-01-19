@@ -455,9 +455,31 @@ GROUP BY
 
 -- 4.) How many of each type of pizza was delivered?
 
+SELECT
+	P.pizza_id,
+	P.pizza_name,
+	COUNT(C.order_id) AS each_type_of_pizza_delivered
 
+FROM clean_customer_orders AS C
+
+JOIN clean_runner_orders AS R
+ON C.order_id = R.order_id
+
+JOIN pizza_names2 AS P
+ON P.pizza_id = C.pizza_id
+
+WHERE R.distance > 0
+
+GROUP BY 
+	P.pizza_id,
+	P.pizza_name
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/3c5fe5b7-3fb2-44b5-ae8a-b06ae7b32db1">
+
+
+
 
 <br><br>
 
@@ -470,9 +492,30 @@ GROUP BY
 
 -- 5.) How many Vegetarian and Meatlovers were ordered by each customer?
 
+SELECT
+	customer_id,
+	pizza_name,
+	COUNT(c.pizza_id) AS count
 
+FROM clean_customer_orders AS c
+
+JOIN pizza_names2 AS pn
+ON c.pizza_id = pn.pizza_id
+
+GROUP BY
+	customer_id,
+	pizza_name
+
+ORDER BY customer_id
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/be660698-2fa6-4845-a989-7b5e250b6c52">
+
+
+
+
+
 
 <br><br>
 
@@ -486,9 +529,25 @@ GROUP BY
 
 -- 6.) What was the maximum number of pizzas delivered in a single order?
 
+SELECT
+	c.order_id,
+	COUNT(pizza_id) AS num_of_pizzas_delivered
 
+FROM clean_customer_orders AS c
+JOIN clean_runner_orders AS r
+ON c.order_id = r.order_id
+
+WHERE distance > 0
+
+GROUP BY c.order_id
+
+ORDER BY num_of_pizzas_delivered DESC
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/cf0ac3a2-e0c4-4103-b9fb-2077f7bb0566">
+
+
 
 <br><br>
 
