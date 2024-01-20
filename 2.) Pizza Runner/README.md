@@ -691,9 +691,22 @@ ORDER BY COUNT(order_id) DESC
 
 -- 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 
+SELECT
+	DATEPART(WEEK, registration_date) AS registration_week,
+	DATEADD(WEEK, DATEDIFF(WEEK, 0, registration_date), 0) AS week,
+	COUNT(runner_id) AS 'Count of Runner_id'
 
+FROM runners
+
+GROUP BY 
+	DATEPART(WEEK, registration_date),
+	DATEADD(WEEK, DATEDIFF(WEEK, 0, registration_date), 0)
 
 ```
+
+<img width="650" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/d0235f7d-41d0-4448-a438-45671fe34e77">
+
+
 
 <br><br>
 
@@ -710,7 +723,14 @@ ORDER BY COUNT(order_id) DESC
 -- to arrive at the Pizza Runner HQ to pickup the order?
 
 
+
+
+
 ```
+
+
+
+
 
 <br><br>
 
@@ -741,9 +761,25 @@ ORDER BY COUNT(order_id) DESC
 
 -- 4. What was the average distance travelled for each customer?
 
+SELECT
+	c.customer_id,
+	AVG(r.distance) AS avg_distance
+
+FROM clean_customer_orders AS c
+JOIN clean_runner_orders AS r
+ON c.order_id = r.order_id
+
+WHERE r.distance > 0
+
+GROUP BY c.customer_id
 
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/5827d5a8-294a-4f25-9fa8-e4f4463eb1c2">
+
+
+
 
 <br><br>
 
