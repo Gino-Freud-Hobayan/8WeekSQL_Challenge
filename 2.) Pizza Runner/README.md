@@ -624,9 +624,21 @@ WHERE exclusions NOT LIKE '' AND extras NOT LIKE ''
 
 -- 9.) What was the total volume of pizzas ordered for each hour of the day?
 
+SELECT 
+    DATEPART(hour, order_time) AS hour_of_day,
+    COUNT(order_id) AS pizza_volume
 
+FROM
+    clean_customer_orders
+
+GROUP BY
+    DATEPART(hour, order_time)
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/b90b17db-7f6c-4079-8ef3-803e29ea1a45">
+
+
 
 <br><br>
 
@@ -643,9 +655,24 @@ WHERE exclusions NOT LIKE '' AND extras NOT LIKE ''
 
 -- 10.) What was the volume of orders for each day of the week?
 
+SELECT 
+	DATENAME(dw, order_time) AS day_of_week,
+	COUNT(order_id) AS order_count
 
+FROM
+	clean_customer_orders
+
+GROUP BY DATENAME(dw, order_time)
+
+ORDER BY COUNT(order_id) DESC
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/fbc31f94-c074-47cd-a750-7e83a846c310">
+
+
+
+
 
 <br><br>
 
