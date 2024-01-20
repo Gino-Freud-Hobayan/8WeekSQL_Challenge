@@ -603,7 +603,7 @@ WHERE exclusions NOT LIKE '' AND extras NOT LIKE ''
 
 ```
 
-<img width="500" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/dcf8b83f-f56b-4961-bcb0-10a1afd8daec">
+<img width="700" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/dcf8b83f-f56b-4961-bcb0-10a1afd8daec">
 
 
 
