@@ -793,9 +793,32 @@ GROUP BY c.customer_id
 
 -- 5. What was the difference between the longest and shortest delivery times for all orders?
 
+-- duration ONLY, because we only need to find the DELIVERY TIME.
+
+WITH CTE_1 AS
+(
+SELECT
+	order_id,
+	duration
+
+FROM clean_runner_orders 
+
+WHERE
+	duration > 0
+)
+
+
+SELECT
+	MAX(duration) - MIN(duration) AS time_difference     -- 40 min. MINUS 10 min.
+
+FROM CTE_1
 
 
 ```
+<img width="300" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/8acd3255-caa0-4646-b44d-26475749a30c">
+
+
+
 
 <br><br>
 
