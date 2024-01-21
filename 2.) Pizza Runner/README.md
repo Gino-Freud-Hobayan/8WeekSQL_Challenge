@@ -793,6 +793,8 @@ GROUP BY c.customer_id
 
 -- 5. What was the difference between the longest and shortest delivery times for all orders?
 
+
+
 -- duration ONLY, because we only need to find the DELIVERY TIME.
 
 WITH CTE_1 AS
