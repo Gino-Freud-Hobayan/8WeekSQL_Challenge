@@ -5,7 +5,8 @@
 ### SOLVED BY: [GINO FREUD D. HOBAYAN](https://gino-freud-hobayan.github.io/) 
 <img src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/6d153ab0-33fc-49be-a668-5017b2b41f53" alt="7 pic" width="450" height="450">
 
-<br>
+
+<br><br>
 
 
 Source: https://8weeksqlchallenge.com/case-study-2/
