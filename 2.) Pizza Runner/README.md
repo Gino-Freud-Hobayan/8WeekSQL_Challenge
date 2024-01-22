@@ -598,18 +598,43 @@ ORDER BY num_of_pizzas_delivered DESC
 
 SELECT *
 
-FROM clean_customer_orders
+FROM clean_customer_orders AS c
+JOIN clean_runner_orders AS r
+ON c.order_id = r.order_id
 
-WHERE exclusions NOT LIKE '' AND extras NOT LIKE ''
+WHERE exclusions <> '' 
+AND extras <> '' 
 
 ```
 
-<img width="700" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/dcf8b83f-f56b-4961-bcb0-10a1afd8daec">
+<img width="950" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/7c62853f-4aed-4d83-b102-8ab4e1c807e2">
 
 
+<br>
 
 
-<br><br>
+```sql
+
+-- Let's remove order_id 9 since it was cancelled.
+
+SELECT *
+
+FROM clean_customer_orders AS c
+JOIN clean_runner_orders AS r
+ON c.order_id = r.order_id
+
+WHERE exclusions <> '' 
+AND extras <> '' 
+AND cancellation = ''
+
+-- Answer = 1 pizza was delivered that had both exclusions and extra.
+
+```
+
+<img width="950" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/b016de8c-eb2f-46ac-aa97-0c5fb1b05e28">
+
+
+<br><br><br>
 
 
 
