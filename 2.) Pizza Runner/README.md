@@ -577,9 +577,29 @@ ORDER BY num_of_pizzas_delivered DESC
 
 -- 7.) For each customer, how many delivered pizzas had at least 1 change and how many had no changes?
 
+SELECT 
+	customer_id,
+   
+	COUNT(
+	    CASE WHEN exclusions <> '' OR extras <> '' 
+		 THEN 1 END
+		 ) AS 'pizza delivered WITH CHANGES',
 
+	COUNT(
+	     CASE WHEN exclusions = '' AND extras = '' 
+		  THEN 1 END
+	     ) AS 'pizza delivered WITHOUT CHANGES' 
+
+FROM clean_customer_orders
+
+GROUP BY customer_id
+ORDER BY customer_id;
 
 ```
+
+<img width="550" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/ce29bc57-2340-4a46-bb53-c8ac10b56e1d">
+
+
 
 <br><br>
 
