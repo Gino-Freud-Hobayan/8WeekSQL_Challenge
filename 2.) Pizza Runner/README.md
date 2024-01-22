@@ -768,12 +768,30 @@ GROUP BY
 -- 2. What was the average time in minutes it took for each runner 
 -- to arrive at the Pizza Runner HQ to pickup the order?
 
+WITH CTE_1 AS
+(
+SELECT
+	runner_id,
+	DATEPART(MINUTE, pickup_time) AS pickup_time_in_MINUTES
+
+FROM clean_runner_orders
+
+WHERE DATEPART(MINUTE, pickup_time) <> 0
+)
 
 
+SELECT
+	runner_id,
+	AVG(pickup_time_in_MINUTES) AS 'Average pickup time in minutes'
+
+FROM CTE_1
+
+GROUP BY runner_id
 
 
 ```
 
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/56c9618f-5bc6-4f8f-b682-3cb0615650c8">
 
 
 
@@ -882,9 +900,25 @@ FROM CTE_1
 
 -- 6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 
+-- DST: Speed = Distance / Time(duration)
 
+SELECT
+    order_id,
+    runner_id,
+    ROUND(    (  distance / (CAST(duration AS numeric) / 60)  )    ,2) AS avg_speed
+
+FROM clean_runner_orders
+
+WHERE duration <> '0'  
+
+ORDER BY runner_id;
 
 ```
+
+<img width="350" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/918b4bd7-5452-45c2-89ef-dfa03cce7775">
+
+
+
 
 <br><br>
 
