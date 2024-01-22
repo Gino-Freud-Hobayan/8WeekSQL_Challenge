@@ -934,9 +934,52 @@ ORDER BY runner_id;
 
 -- 7. What is the successful delivery percentage for each runner?
 
+WITH CTE_1 AS
+(
+SELECT 
+	runner_id,
+	COUNT(CASE WHEN cancellation = '' THEN 1 END) AS count_of_successful_deliveries
 
+FROM clean_runner_orders
+
+GROUP BY runner_id
+),
+
+
+CTE_2 AS
+(
+SELECT 
+	r2.runner_id,
+	count_of_successful_deliveries,
+
+	COUNT(r.order_id) AS overall_total_orders,
+
+	(count_of_successful_deliveries * 100.0 / COUNT(r.order_id)) AS delivery_percentage
+
+FROM CTE_1 AS r2
+JOIN clean_runner_orders AS r
+ON r2.runner_id = r.runner_id
+
+GROUP BY 
+	r2.runner_id, 
+	count_of_successful_deliveries
+)
+
+
+SELECT 
+	runner_id,
+	count_of_successful_deliveries,
+	overall_total_orders,
+	ROUND(  CAST(delivery_percentage AS decimal),   2) AS 'Successful delivery percentage (%)'
+
+FROM CTE_2
 
 ```
+
+<img width="650" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/80119cbc-7f5c-47e6-a56a-5570bce91b3f">
+
+
+
 
 <br><br>
 
