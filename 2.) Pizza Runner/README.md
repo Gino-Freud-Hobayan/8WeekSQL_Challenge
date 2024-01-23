@@ -807,9 +807,44 @@ GROUP BY runner_id
 
 -- 3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 
+-- DATEDIFF = pickup_time MINUS order_time??
 
+WITH CTE_1 AS
+(
+SELECT 
+	c.order_id, 
+	COUNT(c.order_id) AS count_of_pizzas_in_an_order, 
+	c.order_time, 
+	r.pickup_time, 
+	DATEDIFF(MINUTE, c.order_time, r.pickup_time) AS ORDER_PREPARATION_TIME_IN_MINUTES
+
+FROM clean_customer_orders AS c
+JOIN clean_runner_orders AS r
+ON c.order_id = r.order_id
+
+WHERE r.distance <> 0
+
+GROUP BY 
+	c.order_id, 
+	c.order_time, 
+	r.pickup_time
+)
+
+
+SELECT 
+  count_of_pizzas_in_an_order, 
+  AVG(ORDER_PREPARATION_TIME_IN_MINUTES) AS 'Average preparation time in minutes'
+
+FROM CTE_1
+
+GROUP BY count_of_pizzas_in_an_order
 
 ```
+
+<img width="550" alt="image" src="https://github.com/Gino-Freud-Hobayan/8WeekSQL_Challenge/assets/117270964/2fe5fcfd-01f0-48fd-a999-4cd94b217d54">
+
+
+
 
 <br><br>
 
